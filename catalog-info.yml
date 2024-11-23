@@ -1,0 +1,54 @@
+# catalog-info-backstage-motorapiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: motor-loyalty
+  description: The Motor Loyalty service
+  tags:
+    - node
+spec:
+  type: service
+  owner: Grupo 3
+  lifecycle: production
+  providesApis:
+    - motor-loyalty
+  links:
+    - url: 'https://github.com/Inteli-College/2024-2B-T06-motor-loyalty'
+      title: 'Source Code'
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: motor-loyalty
+  description: The Motor Loyalty service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: Grupo 3
+  definition:
+    $text: |
+      {
+        "openapi": "3.0.0",
+        "info": {
+          "version": "1.0.0",
+          "title": "API Documentation",
+          "description": "API documentation for the server."
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8443",
+            "description": "Local development server"
+          }
+        ]
+      }
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: rabbitmq
+  description: RabbitMQ instance for the communication between loyalty engine and API Points
+spec:
+  type: queue
+  owner: Grupo 3
